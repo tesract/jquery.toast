@@ -9,7 +9,8 @@
 		if(!th){ 
 			// get/fix config
 			cf = toast.config;
-			th = $('<ul></ul>').addClass('toast').appendTo(document.body).hide();
+			typeof cf.container === 'object' || (cf.container = document.body);
+			th = $('<ul></ul>').addClass('toast').appendTo(cf.container).hide();
 			typeof cf.width === 'number' || (cf.width = 500);
 			typeof cf.align === 'string' || (cf.align = 'center');
 			typeof cf.closeForStickyOnly === 'boolean' || (cf.closeForStickyOnly = false);
